@@ -35,4 +35,11 @@ export default function Home() {
                     <h1 className={`${pageLoad ? 'animate-fade-in-top' : 'opacity-0'} font-bold sm:text-6xl text-4xl text-center`}>
                         Welcome back, xoru 👋
                     </h1>
-                    <div className={`
+                    <div className={`${pageLoad ? 'animate-fade-in-top' : 'opacity-0'} flex flex-col gap-4 items-center mt-8`}>
+                        {/* ... existing code ... */}
+                    </div>
+                </div>
+            </main>
+        </>
+    )
+}
