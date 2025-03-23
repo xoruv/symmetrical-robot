@@ -9,18 +9,18 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <NextSeo
-        title={"xoru.lol"}
-        description={"xoru's (aka cal) personal site"}
+        title={"xoru's personal site"}
+        description={"xoru's personal site"}
         canonical={`https://xoru.lol${router.asPath.split("?")[0] === "/" ? "" : router.asPath.split("?")[0]}`}
         themeColor={"#2563eb"}
         openGraph={{
           url: `https://xoru.lol${router.asPath.split("?")[0] === "/" ? "" : router.asPath.split("?")[0]}`,
-          title: "xoru.lol",
-          description: "xoru's (aka cal) personal site",
+          title: "xoru's personal site",
+          description: "xoru's personal site",
           images: [
             {
-              url: "/loki.lol icon.webp",
-              alt: "Loki.lol",
+              url: "/xoru.webp",
+              alt: "xoru",
             },
           ],
         }}
