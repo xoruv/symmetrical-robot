@@ -2,29 +2,42 @@ import "@/styles/globals.css";
 import { NextSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
   let router = useRouter();
   const timestamp = new Date().getTime();
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const audio = new Audio('/audio.mp3');
-    audio.volume = 0.15;
-    audio.loop = true;
+    if (!audioRef.current) {
+      audioRef.current = new Audio('/song.mp3');
+      audioRef.current.volume = 0.15;
+      audioRef.current.loop = true;
+    }
+    
+    const audio = audioRef.current;
     
     const playAudio = () => {
       audio.play().catch(() => {
         // If autoplay fails, try again on user interaction
-        document.addEventListener('click', () => audio.play(), { once: true });
+        const playOnInteraction = () => {
+          audio.play();
+          document.removeEventListener('click', playOnInteraction);
+          document.removeEventListener('keydown', playOnInteraction);
+        };
+        document.addEventListener('click', playOnInteraction);
+        document.addEventListener('keydown', playOnInteraction);
       });
     };
 
     playAudio();
 
     return () => {
-      audio.pause();
-      audio.currentTime = 0;
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
     };
   }, []);
 
