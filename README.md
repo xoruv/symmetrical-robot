@@ -11,4 +11,3 @@ I use this site to show off what I am currently working on, and some of my inter
 
 *or just use vercel*
 
-Presence system requires https://github.com/xoru/xoru.lol_presence
