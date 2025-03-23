@@ -35,17 +35,27 @@ export default function Hero({ inView, descRef }: { inView: boolean, descRef: an
             </div>
             {inView && (
               <motion.div
-                className="relative h-40 w-40 rounded-full border-4 border-accent overflow-hidden"
+                className="relative h-44 w-44"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1 }}
               >
                 <img
-                  src="/xoru.webp"
-                  alt="xoru profile"
-                  className="w-full h-full object-cover"
+                  src="/deaths_edge.png"
+                  alt="profile border"
+                  className="absolute inset-0 w-full h-full object-contain z-10 scale-110"
                   draggable={false}
                 />
+                <div className="absolute inset-0 m-3">
+                  <div className="relative h-full w-full rounded-full border-4 border-accent overflow-hidden">
+                    <img
+                      src="/xoru.webp"
+                      alt="xoru profile"
+                      className="w-full h-full object-cover"
+                      draggable={false}
+                    />
+                  </div>
+                </div>
               </motion.div>
             )}
           </div>
