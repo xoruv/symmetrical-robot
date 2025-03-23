@@ -1,4 +1,5 @@
 import { useInView } from 'react-intersection-observer';
+import { useRef } from 'react';
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/index/Hero";
@@ -9,7 +10,6 @@ import Footer from "@/components/sections/index/Footer";
 import { GridPattern } from "@/components/GridPattern";
 
 export default function Home() {
-
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
